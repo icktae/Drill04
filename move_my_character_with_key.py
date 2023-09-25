@@ -89,7 +89,6 @@ while running :
             character_image(100)
         elif dir_move == 'left':
             character_image(10)
-
     else:
         if dir_move == 'right':
             character_image(300)
