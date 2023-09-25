@@ -3,7 +3,7 @@ from pico2d import *
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
-character = load_image('animation_sheet.png')
+character = load_image('sonic_animation.png')
 
 # 캐릭터 이동 함수
 def handle_events():
@@ -72,7 +72,7 @@ while running :
     stop_x = x + dir_lr * 20
     stop_y = y + dir_ud * 20
 
-    if 20 <= stop_x <= 1260 and 40 <= stop_y <= 1010:
+    if 20 <= stop_x <= 1270 and 40 <= stop_y <= 1010:
         x = stop_x
         y = stop_y
 
