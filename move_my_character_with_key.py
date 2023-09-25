@@ -60,12 +60,20 @@ dir_ud = 0
 while running :
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
+
+    # 경계 구간 멈춤
+    stop_x = x + dir_lr * 20
+    stop_y = y + dir_ud * 20
+
+    if 20 <= stop_x <= 1260 and 40 <= stop_y <= 1010:
+        x = stop_x
+        y = stop_y
+
     character.clip_draw(frame * 100, 100, 100, 100, x ,y)
     update_canvas()
     handle_events()
     frame = (frame + 1) % 8
-    x += dir_lr * 10
-    y += dir_ud * 10
+
     delay(0.05)
 
 
