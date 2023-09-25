@@ -50,6 +50,10 @@ def handle_events():
             elif event.key == SDLK_DOWN:
                 dir_ud += 1
 
+# 캐릭터의 형상 변환 함수
+def character_image(z) :
+    character.clip_draw(frame * 100, z, 100, 100, x, y)
+
 running = True
 x = 1280 // 2
 y = 1024 // 2
@@ -82,15 +86,15 @@ while running :
 
     if character_move:
         if dir_move == 'right':
-            character.clip_draw(frame * 100, 100, 100, 100, x, y)
+            character_image(100)
         elif dir_move == 'left':
-            character.clip_draw(frame * 100, 10, 100, 100, x, y)
+            character_image(10)
 
     else:
         if dir_move == 'right':
-            character.clip_draw(frame * 100, 300, 100, 100, x, y)
+            character_image(300)
         elif dir_move == 'left':
-            character.clip_draw(frame * 100, 200, 100, 100, x, y)
+            character_image(200)
 
 
     update_canvas()
