@@ -32,7 +32,7 @@ def handle_events():
                 dir -= 1
             elif event.key == SDLK_LEFT:
                 dir += 1
-                
+
 running = True
 x = 1280 // 2
 frame = 0
@@ -45,7 +45,7 @@ while running :
     update_canvas()
     handle_events()
     frame = (frame + 1) % 8
-    x += dir *5
+    x += dir * 10
     delay(0.05)
 
 
