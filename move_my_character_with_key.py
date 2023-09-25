@@ -57,6 +57,9 @@ frame = 0
 dir_lr = 0
 dir_ud = 0
 
+dir_move = 'right'
+character_move = False
+
 while running :
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
@@ -69,7 +72,27 @@ while running :
         x = stop_x
         y = stop_y
 
-    character.clip_draw(frame * 100, 100, 100, 100, x ,y)
+    if dir_lr > 0:
+        dir_move = 'right'
+    elif dir_lr < 0:
+        dir_move = 'left'
+
+    # 움직임 여부 체크
+    character_move = (dir_lr != 0 or dir_ud != 0)
+
+    if character_move:
+        if dir_move == 'right':
+            character.clip_draw(frame * 100, 100, 100, 100, x, y)
+        elif dir_move == 'left':
+            character.clip_draw(frame * 100, 10, 100, 100, x, y)
+
+    else:
+        if dir_move == 'right':
+            character.clip_draw(frame * 100, 300, 100, 100, x, y)
+        elif dir_move == 'left':
+            character.clip_draw(frame * 100, 200, 100, 100, x, y)
+
+
     update_canvas()
     handle_events()
     frame = (frame + 1) % 8
